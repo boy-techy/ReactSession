@@ -1,5 +1,6 @@
 import React, { Component,Proptypes } from 'react';
 import List from './Listitems';
+import SignUpForm from './SignUpForm';
 import './App.css';
 
 class App extends Component {
@@ -38,8 +39,7 @@ class App extends Component {
     incrementItem(index){
         let temp=this.state.item[index];
         temp = Object.assign({},temp,{qty:temp.qty+1});
-        let litem=this.state.item;
-        litem[index].qty=temp.qty;
+        let litem=Object.assign([],this.state.item,{[index]:temp});
         let temp_total_cost=this.state.totalPrice;
         temp_total_cost+=parseInt(temp.price);
         this.setState({
@@ -51,8 +51,7 @@ class App extends Component {
     decrementItem(index){
         let temp=this.state.item[index];
         temp = Object.assign({},temp,{qty:temp.qty-1});
-        let litem=this.state.item;
-        litem[index].qty=temp.qty;
+        let litem=Object.assign([],this.state.item,{[index]:temp});
         let temp_total_cost=this.state.totalPrice;
         temp_total_cost-=parseInt(temp.price);
 

@@ -31,5 +31,5 @@ export default class Listitems extends Component{
 }
 Listitems.propTypes={
 
-    items:PropTypes.arrayOf(PropTypes.shape({name:PropTypes.number.isRequired})).eisRequired
+    items:PropTypes.arrayOf(PropTypes.shape({name:PropTypes.string.isRequired})).isRequired
 }
